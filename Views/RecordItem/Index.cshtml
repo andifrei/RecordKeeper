@@ -1,0 +1,110 @@
+@model RecordKeeper.Models.RecordStoreViewModel
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<form asp-controller="recordItem" asp-action="Index" method="get">
+
+    
+    <p>
+        <select asp-for="RecordStore" asp-items="Model.Stores">
+            <option value="">All</option>
+        </select>
+        Artist: <input type="text" name="searchString"/>
+        <input type="submit" value="Filter"/>
+    </p>
+</form>
+
+<form asp-controller="recordItem" asp-action="AlbumSearch" method="get">
+    <p>
+        Album: <input type="text" name="searchString"/>
+        <input type="submit" value="Filter"/>
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RecordItems[0].Artist)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecordItems[0].Album)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecordItems[0].Label)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecordItems[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecordItems[0].StoreLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecordItems[0].Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecordItems[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecordItems[0].AsOf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecordItems[0].Store)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecordItems[0].UserID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.RecordItems) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Artist)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Album)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Label)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StoreLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AsOf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Store)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserID)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -27,7 +27,7 @@ namespace RecordKeeper.Models
                         Description = "sdaf",
                         StoreLocation = "sdfg",
                         Type = "LP",
-                        Price = 22.00M,
+                        Price = 0.00M,
                         AsOf = DateTime.Parse("	11/02/2018 13:00:00"),
                         Store = "Reckless",
                         UserID = 1
@@ -40,7 +40,7 @@ namespace RecordKeeper.Models
                         Description = "asd",
                         StoreLocation = "sdf",
                         Type = "LP",
-                        Price = 22.00M,
+                        Price = 0.00M,
                         AsOf = DateTime.Parse("	11/02/2018 13:00:00"),
                         Store = "Shuga",
                         UserID = 1

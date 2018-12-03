@@ -35,7 +35,7 @@ namespace RecordKeeper.Migrations
 
                     b.Property<string>("Label");
 
-                    b.Property<double>("Price");
+                    b.Property<decimal>("Price");
 
                     b.Property<string>("Store");
 

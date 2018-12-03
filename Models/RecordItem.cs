@@ -24,7 +24,7 @@ namespace RecordKeeper.Models
         public string Type { get; set; }
         [Range(0, 10000)]
         [DataType(DataType.Currency)]
-        public double Price { get; set; }
+        public decimal Price { get; set; }
         [Display(Name = "Last Date")]
         [DataType(DataType.Date)]
         public DateTime AsOf { get; set; }

@@ -13,15 +13,16 @@ namespace RecordKeeper.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Artist = table.Column<string>(nullable: true),
-                    Album = table.Column<string>(nullable: true),
+                    Artist = table.Column<string>(maxLength: 60, nullable: false),
+                    Album = table.Column<string>(maxLength: 60, nullable: false),
                     Label = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     StoreLocation = table.Column<string>(nullable: true),
                     Type = table.Column<string>(nullable: true),
                     Price = table.Column<decimal>(nullable: false),
                     AsOf = table.Column<DateTime>(nullable: false),
-                    Store = table.Column<string>(nullable: true)
+                    Store = table.Column<string>(nullable: true),
+                    UserID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

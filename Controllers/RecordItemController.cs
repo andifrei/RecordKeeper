@@ -198,5 +198,41 @@ namespace RecordKeeper.Controllers
         {
             return _context.RecordItem.Any(e => e.ID == id);
         }
+
+
+        // POST: RecordItem/PriceUpdate/6
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> PriceUpdate(int id, [Bind("ID,Artist,Album,Label,Description,StoreLocation,Type,Price,AsOf,Store,UserID")] RecordItem recordItem)
+        {
+            if (id != recordItem.ID)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(recordItem);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!RecordItemExists(recordItem.ID))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(recordItem);
+        }
     }
 }

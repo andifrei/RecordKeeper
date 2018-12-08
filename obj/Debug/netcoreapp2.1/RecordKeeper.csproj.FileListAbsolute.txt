@@ -38,3 +38,4 @@
 /home/andi/Applications/RecordKeeper/obj/Debug/netcoreapp2.1/Razor/Views/RecordItem/Edit.g.cshtml.cs
 /home/andi/Applications/RecordKeeper/obj/Debug/netcoreapp2.1/Razor/Views/RecordItem/Index.g.cshtml.cs
 /home/andi/Applications/RecordKeeper/obj/Debug/netcoreapp2.1/Razor/Views/RecordItem/AlbumSearch.g.cshtml.cs
+/home/andi/Applications/RecordKeeper/obj/Debug/netcoreapp2.1/Razor/Views/RecordItem/PriceUpdate.g.cshtml.cs

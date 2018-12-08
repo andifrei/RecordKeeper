@@ -9,7 +9,7 @@ using RecordKeeper.Models;
 namespace RecordKeeper.Migrations
 {
     [DbContext(typeof(RecordKeeperContext))]
-    [Migration("20181208145153_InitialCreate")]
+    [Migration("20181208152018_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,13 +31,13 @@ namespace RecordKeeper.Migrations
                         .IsRequired()
                         .HasMaxLength(60);
 
-                    b.Property<DateTime>("AsOf");
+                    b.Property<DateTime?>("AsOf");
 
                     b.Property<string>("Description");
 
                     b.Property<string>("Label");
 
-                    b.Property<decimal>("Price");
+                    b.Property<decimal?>("Price");
 
                     b.Property<string>("Store");
 

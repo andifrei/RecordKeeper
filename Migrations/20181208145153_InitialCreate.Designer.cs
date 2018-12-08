@@ -9,7 +9,7 @@ using RecordKeeper.Models;
 namespace RecordKeeper.Migrations
 {
     [DbContext(typeof(RecordKeeperContext))]
-    [Migration("20181203020137_InitialCreate")]
+    [Migration("20181208145153_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

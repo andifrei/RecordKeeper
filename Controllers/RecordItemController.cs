@@ -216,6 +216,24 @@ namespace RecordKeeper.Controllers
             var result = MainAsync(test);
             result.Wait();
             
+            if (result.Result.Any())
+            {
+                decimal minprice = 10000.00M;
+
+                foreach (var item in result.Result)
+                {
+                    if(item.Price < minprice && item.Type == "LP")
+                    {
+                        recordItem.Price = item.Price;
+                        recordItem.Description = item.Description;
+                        recordItem.Label = item.Label;
+                        //recordItem.AsOf = DateTime.Now;
+                    }
+                }
+                
+            }
+            
+            
             if (recordItem == null)
             {
                 return NotFound();

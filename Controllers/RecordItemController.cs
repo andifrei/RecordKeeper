@@ -224,10 +224,10 @@ namespace RecordKeeper.Controllers
                 {
                     if(item.Price < minprice && item.Type == "LP")
                     {
-                        recordItem.Price = item.Price;
-                        recordItem.Description = item.Description;
-                        recordItem.Label = item.Label;
-                        //recordItem.AsOf = DateTime.Now;
+                        recordItem.Price        = item.Price;
+                        recordItem.Description  = item.Description;
+                        recordItem.Label        = item.Label;
+                        recordItem.AsOf         = DateTime.Now;
                     }
                 }
                 

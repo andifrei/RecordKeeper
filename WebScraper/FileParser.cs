@@ -136,7 +136,7 @@ namespace RecordKeeper
         }
 
         /// <summary>
-        /// Generate's a Row from the fields and raw text
+        /// Generate a Row from the fields and raw text
         /// </summary>
         /// <param name="fields"></param>
         /// <param name="raw"></param>
@@ -240,6 +240,7 @@ namespace RecordKeeper
         public int GetNumberOfColumns()
         {
             List<string> rows = ParseRows();
+            if(rows.Count == 0) return 0;
             return rows[0].Split(',').Length;
         }
     }

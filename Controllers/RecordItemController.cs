@@ -1,11 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RecordKeeper.Models;
+using AngleSharp;
+using AngleSharp.Dom.Html;
+using AngleSharp.Extensions;
 
 namespace RecordKeeper.Controllers
 {
@@ -208,6 +212,10 @@ namespace RecordKeeper.Controllers
             }
 
             var recordItem = await _context.RecordItem.FindAsync(id);
+            string test = recordItem.Artist + " " + recordItem.Album;
+            var result = MainAsync(test);
+            result.Wait();
+            
             if (recordItem == null)
             {
                 return NotFound();
@@ -249,6 +257,52 @@ namespace RecordKeeper.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(recordItem);
+        }
+
+
+
+        static async Task<List<RecordItem>> MainAsync(string search)
+        {
+            // Setup the configuration to support document loading
+            var config = Configuration.Default.WithDefaultLoader();
+            var address = "https://www.reckless.com/";
+            Dictionary<string, string> fields = new Dictionary<string, string> {
+                { "keywords", search },
+                { "format", ""},
+                { "store", "" },
+                { "cond", "" }
+            };
+
+            var context = BrowsingContext.New(config);
+            await context.OpenAsync(address);
+            var form = context.Active.QuerySelector("form") as IHtmlFormElement;
+            
+            var document = await form.SetValues((fields)).SubmitAsync(context.Active.QuerySelector("srch"));
+            // Asynchronously get the document in a new context using the configuration
+
+
+            var cells = document.QuerySelectorAll("td.main table");
+            List<string> result = new List<string>();
+            foreach (var item in cells)
+            {
+                var tableRows = item.QuerySelectorAll(">tr >td").Select(m => m.Text()).ToList();
+                for (int i = 0; i < tableRows.Count(); i++)
+                {
+                    tableRows[i] = Regex.Replace(tableRows[i], @"\t|\n|\r", "");
+                }
+                var row = String.Join("\t", tableRows.ToArray());
+                result.Add(row);
+            }
+            
+            var what = String.Join("\n", result.ToArray());
+
+
+            ParsedFile<RecklessHeaderRow, RecklessRow> parsed = new ParsedFile<RecklessHeaderRow, RecklessRow>();
+            parsed = RecklessParser.Parse(what);
+            List<RecordItem> records = RecklessParser.GenerateReckless(parsed);
+
+
+            return records;
         }
     }
 }

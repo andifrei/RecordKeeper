@@ -199,6 +199,22 @@ namespace RecordKeeper.Controllers
             return _context.RecordItem.Any(e => e.ID == id);
         }
 
+        // GET: RecordItem/PriceUpdate/6
+        public async Task<IActionResult> PriceUpdate(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var recordItem = await _context.RecordItem.FindAsync(id);
+            if (recordItem == null)
+            {
+                return NotFound();
+            }
+            return View(recordItem);
+        }
+
 
         // POST: RecordItem/PriceUpdate/6
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 

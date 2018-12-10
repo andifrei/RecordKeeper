@@ -40,14 +40,16 @@ namespace RecordKeeper
                 {
                     try
                     {
-                        reckl.Artist = row.ArtistAlbum;
-                        reckl.Album = row.ArtistAlbum;
-                        reckl.Label = row.Label;
-                        reckl.Description = "";
+                        reckl.Artist        = row.ArtistAlbum;
+                        reckl.Album         = row.ArtistAlbum;
+                        reckl.Label         = row.Label;
+                        reckl.Description   = "";
                         reckl.StoreLocation = row.Description;
-                        reckl.Type = row.StoreLocation.Split(new[] { "$" }, StringSplitOptions.None)[0];
-                        reckl.Type = reckl.Type.Split(new[] {" "}, StringSplitOptions.None)[1];
-                        reckl.Price = FileRow.TryParseDecimal(row.StoreLocation.Split(new[] { "$" }, StringSplitOptions.None)[1]);
+
+                        reckl.Type          = row.StoreLocation.Split(new[] { "$" }, StringSplitOptions.None)[0];
+                        reckl.Condition     = reckl.Type.Split(new[] {" "}, StringSplitOptions.None)[0];
+                        reckl.Type          = reckl.Type.Split(new[] {" "}, StringSplitOptions.None)[1];
+                        reckl.Price         = FileRow.TryParseDecimal(row.StoreLocation.Split(new[] { "$" }, StringSplitOptions.None)[1]);
 
                         holder.Add(reckl);
                     }
@@ -59,14 +61,15 @@ namespace RecordKeeper
                 {
                     try
                     {
-                        reckl.Artist = row.ArtistAlbum;
-                        reckl.Album = row.ArtistAlbum;
-                        reckl.Label = row.Label;
-                        reckl.Description = row.Description;
+                        reckl.Artist        = row.ArtistAlbum;
+                        reckl.Album         = row.ArtistAlbum;
+                        reckl.Label         = row.Label;
+                        reckl.Description   = row.Description;
                         reckl.StoreLocation = row.StoreLocation;
-                        reckl.Type = row.TypePrice.Split(new[] { "$" }, StringSplitOptions.None)[0];
-                        reckl.Type = reckl.Type.Split(new[] {" "}, StringSplitOptions.None)[1];
-                        reckl.Price = FileRow.TryParseDecimal(row.TypePrice.Split(new[] { "$" }, StringSplitOptions.None)[1]);
+                        reckl.Type          = row.TypePrice.Split(new[] { "$" }, StringSplitOptions.None)[0];
+                        reckl.Condition     = reckl.Type.Split(new[] {" "}, StringSplitOptions.None)[0];
+                        reckl.Type          = reckl.Type.Split(new[] {" "}, StringSplitOptions.None)[1];
+                        reckl.Price         = FileRow.TryParseDecimal(row.TypePrice.Split(new[] { "$" }, StringSplitOptions.None)[1]);
 
                         holder.Add(reckl);
                     }

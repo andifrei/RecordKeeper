@@ -107,7 +107,7 @@ namespace RecordKeeper.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Artist,Album,Label,Description,StoreLocation,Type,Price,AsOf,Store, UserID")] RecordItem recordItem)
+        public async Task<IActionResult> Create([Bind("ID,Artist,Album,Label,Description,StoreLocation,Type,Condition,Price,AsOf,Store, UserID")] RecordItem recordItem)
         {
             if (ModelState.IsValid)
             {
@@ -139,7 +139,7 @@ namespace RecordKeeper.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Artist,Album,Label,Description,StoreLocation,Type,Price,AsOf,Store,UserID")] RecordItem recordItem)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Artist,Album,Label,Description,StoreLocation,Type,Condition,Price,AsOf,Store,UserID")] RecordItem recordItem)
         {
             if (id != recordItem.ID)
             {
@@ -224,10 +224,13 @@ namespace RecordKeeper.Controllers
                 {
                     if(item.Price < minprice && item.Type == "LP")
                     {
-                        recordItem.Price        = item.Price;
-                        recordItem.Description  = item.Description;
-                        recordItem.Label        = item.Label;
-                        recordItem.AsOf         = DateTime.Now;
+                        recordItem.Price            = item.Price;
+                        recordItem.Description      = item.Description;
+                        recordItem.Label            = item.Label;
+                        recordItem.Type             = item.Type;
+                        recordItem.Condition        = item.Condition;
+                        recordItem.AsOf             = DateTime.Now;
+                        recordItem.StoreLocation    = item.StoreLocation;
                     }
                 }
                 
@@ -247,7 +250,7 @@ namespace RecordKeeper.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> PriceUpdate(int id, [Bind("ID,Artist,Album,Label,Description,StoreLocation,Type,Price,AsOf,Store,UserID")] RecordItem recordItem)
+        public async Task<IActionResult> PriceUpdate(int id, [Bind("ID,Artist,Album,Label,Description,StoreLocation,Type,Condition,Price,AsOf,Store,UserID")] RecordItem recordItem)
         {
             if (id != recordItem.ID)
             {

@@ -31,6 +31,8 @@ namespace RecordKeeper.Migrations
 
                     b.Property<DateTime?>("AsOf");
 
+                    b.Property<string>("Condition");
+
                     b.Property<string>("Description");
 
                     b.Property<string>("Label");

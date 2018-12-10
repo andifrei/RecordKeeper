@@ -21,6 +21,7 @@ namespace RecordKeeper.Models
         public string Label { get; set; }
         public string Description { get; set; }
         public string StoreLocation { get; set; }
+        public string Condition { get; set; }
         public string Type { get; set; }
         [Range(0, 10000)]
         [DataType(DataType.Currency)]

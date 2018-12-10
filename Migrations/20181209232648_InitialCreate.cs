@@ -18,6 +18,7 @@ namespace RecordKeeper.Migrations
                     Label = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     StoreLocation = table.Column<string>(nullable: true),
+                    Condition = table.Column<string>(nullable: true),
                     Type = table.Column<string>(nullable: true),
                     Price = table.Column<decimal>(nullable: true),
                     AsOf = table.Column<DateTime>(nullable: true),

@@ -39,3 +39,6 @@
 /home/andi/Applications/RecordKeeper/obj/Debug/netcoreapp2.1/Razor/Views/RecordItem/Index.g.cshtml.cs
 /home/andi/Applications/RecordKeeper/obj/Debug/netcoreapp2.1/Razor/Views/RecordItem/AlbumSearch.g.cshtml.cs
 /home/andi/Applications/RecordKeeper/obj/Debug/netcoreapp2.1/Razor/Views/RecordItem/PriceUpdate.g.cshtml.cs
+/home/andi/Applications/RecordKeeper/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_LoginPartial.g.cshtml.cs
+/home/andi/Applications/RecordKeeper/obj/Debug/netcoreapp2.1/Razor/Areas/Identity/Pages/_ValidationScriptsPartial.g.cshtml.cs
+/home/andi/Applications/RecordKeeper/obj/Debug/netcoreapp2.1/Razor/Areas/Identity/Pages/_ViewStart.g.cshtml.cs

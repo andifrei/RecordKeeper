@@ -72,7 +72,7 @@ using RecordKeeper.Models;
             WriteLiteral("\r\n<h2>Index</h2>\r\n\r\n<p>\r\n    ");
             EndContext();
             BeginContext(124, 37, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "958f75c887e94f3dbc901a371b1059ef", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "424ac159e8df4fde98db582f1950a4ef", async() => {
                 BeginContext(147, 10, true);
                 WriteLiteral("Create New");
                 EndContext();
@@ -94,7 +94,7 @@ using RecordKeeper.Models;
             WriteLiteral("\r\n</p>\r\n\r\n");
             EndContext();
             BeginContext(171, 186, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2aa646b6d9824a46a45ef6d9c88177b3", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ee4dede2fcca434f80c0083c696dff2f", async() => {
                 BeginContext(224, 126, true);
                 WriteLiteral("\r\n    <p>\r\n        Artist: <input type=\"text\" name=\"searchString\"/>\r\n        <input type=\"submit\" value=\"Filter\"/>\r\n    </p>\r\n");
                 EndContext();
@@ -120,7 +120,7 @@ using RecordKeeper.Models;
             WriteLiteral("\r\n\r\n");
             EndContext();
             BeginContext(361, 204, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9c841b45ec4b4b23ae922619ec1294b8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4e10d124169c4eef94adda4d47a69614", async() => {
                 BeginContext(433, 125, true);
                 WriteLiteral("\r\n    <p>\r\n        Album: <input type=\"text\" name=\"searchString\"/>\r\n        <input type=\"submit\" value=\"Filter\"/>\r\n    </p>\r\n");
                 EndContext();
@@ -336,7 +336,7 @@ using RecordKeeper.Models;
             WriteLiteral("\r\n            </td>\r\n            <td>\r\n                ");
             EndContext();
             BeginContext(2527, 53, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "798d302585cd48a595db74edb8d659de", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d90eca55df0f4fd6a291efe1e09e5434", async() => {
                 BeginContext(2572, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -371,7 +371,7 @@ using RecordKeeper.Models;
             WriteLiteral(" |\r\n                ");
             EndContext();
             BeginContext(2600, 59, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e6be955de5274ad7beb8d3e9b41193c2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6e8b424191a74cd5a9e95e166fdfd2bd", async() => {
                 BeginContext(2648, 7, true);
                 WriteLiteral("Details");
                 EndContext();
@@ -406,7 +406,7 @@ using RecordKeeper.Models;
             WriteLiteral(" |\r\n                ");
             EndContext();
             BeginContext(2679, 57, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "da7e99ea04954f70aca21827d8a0cf26", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a676dfd76e6f4836bd524c7d030ac01a", async() => {
                 BeginContext(2726, 6, true);
                 WriteLiteral("Delete");
                 EndContext();

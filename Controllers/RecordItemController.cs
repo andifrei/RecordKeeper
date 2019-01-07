@@ -10,6 +10,7 @@ using RecordKeeper.Models;
 using AngleSharp;
 using AngleSharp.Dom.Html;
 using AngleSharp.Extensions;
+using Microsoft.AspNetCore.Authorization;
 
 namespace RecordKeeper.Controllers
 {
@@ -107,10 +108,13 @@ namespace RecordKeeper.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Artist,Album,Label,Description,StoreLocation,Type,Condition,Price,AsOf,Store, UserID")] RecordItem recordItem)
+        public async Task<IActionResult> Create([Bind("ID,Artist,Album,Label,Description,StoreLocation,Type,Condition,Price,AsOf,Store,UserID")] RecordItem recordItem)
         {
             if (ModelState.IsValid)
             {
+                System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+                var currentUserId = currentUser.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier).Value;
+                recordItem.UserID = currentUserId;
                 _context.Add(recordItem);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -215,6 +219,11 @@ namespace RecordKeeper.Controllers
             string test = recordItem.Artist + " " + recordItem.Album;
             var result = MainAsync(test);
             result.Wait();
+
+            System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+            
+            var currentUserId = currentUser.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier).Value;
+            
             
             if (result.Result.Any())
             {
@@ -226,6 +235,7 @@ namespace RecordKeeper.Controllers
                     {
                         recordItem.Price            = item.Price;
                         recordItem.Description      = item.Description;
+                        recordItem.UserID           = currentUserId;
                         recordItem.Label            = item.Label;
                         recordItem.Type             = item.Type;
                         recordItem.Condition        = item.Condition;

@@ -31,7 +31,7 @@ namespace RecordKeeper.Models
                         Price = 0.00M,
                         AsOf = DateTime.Parse("	11/02/2018 13:00:00"),
                         Store = "Reckless",
-                        UserID = 1
+                        UserID = "1"
                     },
                     new RecordItem
                     {
@@ -45,7 +45,7 @@ namespace RecordKeeper.Models
                         Price = 0.00M,
                         AsOf = DateTime.Parse("	11/02/2018 13:00:00"),
                         Store = "Shuga",
-                        UserID = 1
+                        UserID = "1"
                     }
                 );
 

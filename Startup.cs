@@ -11,6 +11,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using RecordKeeper.Models;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Authorization;
+                    
 
 namespace RecordKeeper
 {
@@ -34,7 +37,14 @@ namespace RecordKeeper
             });
 
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc(config =>
+                {
+                    var policy = new AuthorizationPolicyBuilder()
+                         .RequireAuthenticatedUser()
+                         .Build();
+                    config.Filters.Add(new AuthorizeFilter(policy));
+                }
+            ).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddDbContext<RecordKeeperContext>(options => 
                 options.UseSqlite("Data SOurce=RecordKeeper.db"));

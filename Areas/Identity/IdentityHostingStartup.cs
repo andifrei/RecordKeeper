@@ -6,6 +6,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RecordKeeper.Areas.Identity.Data;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Authorization;
+
 
 [assembly: HostingStartup(typeof(RecordKeeper.Areas.Identity.IdentityHostingStartup))]
 namespace RecordKeeper.Areas.Identity
@@ -21,6 +25,8 @@ namespace RecordKeeper.Areas.Identity
 
                 services.AddDefaultIdentity<IdentityUser>()
                     .AddEntityFrameworkStores<RecordKeeperIdentityDbContext>();
+                //services.AddDefaultIdentity<IdentityUser>().AddRoles<IdentityRole>()
+                //    .AddEntityFrameworkStores<RecordKeeperIdentityDbContext>();
             });
         }
     }

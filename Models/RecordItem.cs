@@ -30,7 +30,7 @@ namespace RecordKeeper.Models
         [DataType(DataType.Date)]
         public DateTime? AsOf { get; set; }
         public string Store { get; set; }
-        public int UserID { get; set; }
+        public string UserID { get; set; }
 
     }
 }

@@ -19,12 +19,13 @@ namespace RecordKeeper.Models
         [Required]
         public string Album { get; set; }
         public string Label { get; set; }
+        [DisplayFormat(DataFormatString = "{0,20}")]
         public string Description { get; set; }
         public string StoreLocation { get; set; }
         public string Condition { get; set; }
         public string Type { get; set; }
         [Range(0, 10000)]
-        [DataType(DataType.Currency)]
+        [DisplayFormat(DataFormatString="{0:C}")]
         public decimal? Price { get; set; }
         [Display(Name = "Last Date")]
         [DataType(DataType.Date)]

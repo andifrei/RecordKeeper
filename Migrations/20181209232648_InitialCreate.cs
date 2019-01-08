@@ -23,7 +23,7 @@ namespace RecordKeeper.Migrations
                     Price = table.Column<decimal>(nullable: true),
                     AsOf = table.Column<DateTime>(nullable: true),
                     Store = table.Column<string>(nullable: true),
-                    UserID = table.Column<int>(nullable: false)
+                    UserID = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

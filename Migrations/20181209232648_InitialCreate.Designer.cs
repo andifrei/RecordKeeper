@@ -47,7 +47,7 @@ namespace RecordKeeper.Migrations
 
                     b.Property<string>("Type");
 
-                    b.Property<int>("UserID");
+                    b.Property<string>("UserID");
 
                     b.HasKey("ID");
 

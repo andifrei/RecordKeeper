@@ -231,7 +231,7 @@ namespace RecordKeeper.Controllers
 
                 foreach (var item in result.Result)
                 {
-                    if(item.Price < minprice && item.Type == "LP")
+                    if(item.Price < minprice && item.Type.Contains("LP"))
                     {
                         recordItem.Price            = item.Price;
                         recordItem.Description      = item.Description;
